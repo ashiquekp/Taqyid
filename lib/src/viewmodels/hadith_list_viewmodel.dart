@@ -1,5 +1,6 @@
 
 import 'package:taqyid/src/models/hadith_simple_model.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:taqyid/src/services/api_service.dart';
 import 'package:taqyid/src/viewmodels/language_viewmodel.dart';
 

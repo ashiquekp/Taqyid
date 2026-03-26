@@ -1,24 +1,11 @@
-import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:taqyid/src/views/category/category_list_screen.dart';
+import 'package:taqyid/src/views/hadith/hadith_detail_screen.dart';
 import 'package:taqyid/src/views/hadith/hadith_list_screen.dart';
 import 'package:taqyid/src/views/home/home_screen.dart';
 import 'package:taqyid/src/views/language/language_selection_screen.dart';
 import 'package:taqyid/src/views/splash/splash_screen.dart';
-
-// Placeholder for Module 5: Hadith Detail Screen
-class _PlaceholderHadithDetailScreen extends StatelessWidget {
-  const _PlaceholderHadithDetailScreen({required this.hadithId});
-  final String hadithId;
-  
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Hadith: $hadithId')),
-      body: Center(child: Text('Hadith Detail — coming in Module 5', textAlign: TextAlign.center)),
-    );
-  }
-}
 
 final appRouter = GoRouter(
   initialLocation: '/splash',
@@ -69,7 +56,7 @@ final appRouter = GoRouter(
       name: 'hadith-detail',
       builder: (context, state) {
         final id = state.pathParameters['id']!;
-        return _PlaceholderHadithDetailScreen(hadithId: id);
+        return HadithDetailScreen(hadithId: id);
       },
     ),
   ],
