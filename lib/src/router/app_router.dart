@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:taqyid/src/views/category/category_list_screen.dart';
+import 'package:taqyid/src/views/home/home_screen.dart';
 import 'package:taqyid/src/views/language/language_selection_screen.dart';
 import 'package:taqyid/src/views/splash/splash_screen.dart';
 
-// Placeholder home screen — replaced in Module 3
-class _PlaceholderHomeScreen extends StatelessWidget {
-  const _PlaceholderHomeScreen();
+// Placeholder for Module 4: Hadith Listing
+class _PlaceholderHadithListScreen extends StatelessWidget {
+  const _PlaceholderHadithListScreen({required this.categoryId, required this.title});
+  final String categoryId;
+  final String title;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Taqyid')),
-      body: const Center(child: Text('Home — coming in Module 3')),
+      appBar: AppBar(title: Text('Hadiths: $title')),
+      body: Center(child: Text('Hadith Listing — coming in Module 4\nCategory ID: $categoryId', textAlign: TextAlign.center)),
     );
   }
 }
@@ -32,7 +37,32 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/home',
       name: 'home',
-      builder: (_, __) => const _PlaceholderHomeScreen(),
+      builder: (_, __) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/category/:id',
+      name: 'category-detail',
+      builder: (context, state) {
+        final id = state.pathParameters['id']!;
+        final extra = state.extra as Map<String, dynamic>? ?? {};
+        final title = extra['title'] as String? ?? 'Category';
+        final breadcrumbs = extra['breadcrumbs'] as List<String>? ?? [title];
+        
+        return CategoryListScreen(
+          categoryId: id,
+          title: title,
+          breadcrumbs: breadcrumbs,
+        );
+      },
+    ),
+    GoRoute(
+      path: '/hadiths/:id',
+      name: 'hadith-list',
+      builder: (context, state) {
+        final id = state.pathParameters['id']!;
+        final title = state.extra as String? ?? 'Hadiths';
+        return _PlaceholderHadithListScreen(categoryId: id, title: title);
+      },
     ),
   ],
 );
