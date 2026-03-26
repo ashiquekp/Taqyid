@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:taqyid/src/views/category/category_list_screen.dart';
+import 'package:taqyid/src/views/hadith/hadith_list_screen.dart';
 import 'package:taqyid/src/views/home/home_screen.dart';
 import 'package:taqyid/src/views/language/language_selection_screen.dart';
 import 'package:taqyid/src/views/splash/splash_screen.dart';
 
-// Placeholder for Module 4: Hadith Listing
-class _PlaceholderHadithListScreen extends StatelessWidget {
-  const _PlaceholderHadithListScreen({required this.categoryId, required this.title});
-  final String categoryId;
-  final String title;
+// Placeholder for Module 5: Hadith Detail Screen
+class _PlaceholderHadithDetailScreen extends StatelessWidget {
+  const _PlaceholderHadithDetailScreen({required this.hadithId});
+  final String hadithId;
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Hadiths: $title')),
-      body: Center(child: Text('Hadith Listing — coming in Module 4\nCategory ID: $categoryId', textAlign: TextAlign.center)),
+      appBar: AppBar(title: Text('Hadith: $hadithId')),
+      body: Center(child: Text('Hadith Detail — coming in Module 5', textAlign: TextAlign.center)),
     );
   }
 }
@@ -56,12 +56,20 @@ final appRouter = GoRouter(
       },
     ),
     GoRoute(
-      path: '/hadiths/:id',
+      path: '/hadiths/:categoryId',
       name: 'hadith-list',
       builder: (context, state) {
-        final id = state.pathParameters['id']!;
+        final categoryId = state.pathParameters['categoryId']!;
         final title = state.extra as String? ?? 'Hadiths';
-        return _PlaceholderHadithListScreen(categoryId: id, title: title);
+        return HadithListScreen(categoryId: categoryId, title: title);
+      },
+    ),
+    GoRoute(
+      path: '/hadith/:id',
+      name: 'hadith-detail',
+      builder: (context, state) {
+        final id = state.pathParameters['id']!;
+        return _PlaceholderHadithDetailScreen(hadithId: id);
       },
     ),
   ],
