@@ -28,7 +28,7 @@ class HomeScreen extends ConsumerWidget {
           IconButton(
             icon: const Icon(Icons.settings_rounded),
             onPressed: () {
-              // Placeholder for Settings Module
+              context.push('/settings');
             },
           ),
         ],

@@ -31,7 +31,13 @@ class _LanguageSelectionScreenState
     if (_selected == null) return;
     await ref.read(selectedLanguageNotifierProvider.notifier).select(_selected!);
     await HiveStorageService.setFirstLaunchDone();
-    if (mounted) context.go('/home');
+    if (mounted) {
+      if (context.canPop()) {
+        context.pop();
+      } else {
+        context.go('/home');
+      }
+    }
   }
 
   @override
@@ -41,6 +47,10 @@ class _LanguageSelectionScreenState
 
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: SafeArea(
         child: Column(
           children: [
