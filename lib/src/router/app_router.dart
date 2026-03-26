@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:taqyid/src/views/language/language_selection_screen.dart';
+import 'package:taqyid/src/views/splash/splash_screen.dart';
 
-// Import views as they are created
-// Placeholder routes for Module 1 - will be expanded in subsequent modules
+// Placeholder home screen — replaced in Module 3
+class _PlaceholderHomeScreen extends StatelessWidget {
+  const _PlaceholderHomeScreen();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Taqyid')),
+      body: const Center(child: Text('Home — coming in Module 3')),
+    );
+  }
+}
 
 final appRouter = GoRouter(
   initialLocation: '/splash',
@@ -11,51 +22,17 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/splash',
       name: 'splash',
-      builder: (context, state) => const _PlaceholderSplashScreen(),
+      builder: (_, __) => const SplashScreen(),
+    ),
+    GoRoute(
+      path: '/language-select',
+      name: 'language-select',
+      builder: (_, __) => const LanguageSelectionScreen(),
+    ),
+    GoRoute(
+      path: '/home',
+      name: 'home',
+      builder: (_, __) => const _PlaceholderHomeScreen(),
     ),
   ],
 );
-
-/// Temporary placeholder - replaced in Module 2 with real SplashScreen
-class _PlaceholderSplashScreen extends StatelessWidget {
-  const _PlaceholderSplashScreen();
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Scaffold(
-      backgroundColor: theme.colorScheme.primary,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'تقييد',
-              style: const TextStyle(
-                fontFamily: 'Scheherazade',
-                fontSize: 56,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-                height: 1.5,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Taqyid',
-              style: theme.textTheme.headlineLarge?.copyWith(
-                color: Colors.white70,
-                letterSpacing: 4,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-            const SizedBox(height: 48),
-            const CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.white54),
-              strokeWidth: 2,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
