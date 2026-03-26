@@ -22,7 +22,7 @@ class HomeScreen extends ConsumerWidget {
           IconButton(
             icon: const Icon(Icons.search_rounded),
             onPressed: () {
-              // Placeholder for Search Module
+              context.push('/search');
             },
           ),
           IconButton(
