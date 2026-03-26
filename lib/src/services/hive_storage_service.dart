@@ -131,6 +131,10 @@ class HiveStorageService {
   static Future<void> deleteNote(String hadithId) =>
       _notesBox.delete(hadithId);
 
+  static Map<String, String> getAllNotes() {
+    return _notesBox.toMap().cast<String, String>();
+  }
+
   // ============ Search History ============
   static Box<dynamic> get searchHistory => _searchHistoryBox;
 

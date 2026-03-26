@@ -103,7 +103,9 @@ class HomeScreen extends ConsumerWidget {
           ),
         ],
         onTap: (index) {
-          // Bottom Navigation will switch tabs in upcoming modules
+          if (index == 2) {
+            context.push('/library');
+          }
         },
       ),
     );
