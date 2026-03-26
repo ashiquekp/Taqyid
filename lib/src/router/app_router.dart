@@ -5,6 +5,7 @@ import 'package:taqyid/src/views/hadith/hadith_detail_screen.dart';
 import 'package:taqyid/src/views/hadith/hadith_list_screen.dart';
 import 'package:taqyid/src/views/search/search_screen.dart';
 import 'package:taqyid/src/views/library/library_screen.dart';
+import 'package:taqyid/src/views/daily/daily_hadith_screen.dart';
 import 'package:taqyid/src/views/home/home_screen.dart';
 import 'package:taqyid/src/views/language/language_selection_screen.dart';
 import 'package:taqyid/src/views/splash/splash_screen.dart';
@@ -70,6 +71,11 @@ final appRouter = GoRouter(
       path: '/library',
       name: 'library',
       builder: (_, __) => const LibraryScreen(),
+    ),
+    GoRoute(
+      path: '/daily',
+      name: 'daily',
+      builder: (_, __) => const DailyHadithScreen(),
     ),
   ],
 );

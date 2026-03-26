@@ -81,6 +81,8 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> with SingleTicker
         onTap: (index) {
           if (index == 0) {
             context.go('/home');
+          } else if (index == 1) {
+            context.go('/daily');
           }
         },
       ),

@@ -103,7 +103,9 @@ class HomeScreen extends ConsumerWidget {
           ),
         ],
         onTap: (index) {
-          if (index == 2) {
+          if (index == 1) {
+            context.push('/daily');
+          } else if (index == 2) {
             context.push('/library');
           }
         },
