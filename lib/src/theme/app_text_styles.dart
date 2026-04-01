@@ -81,24 +81,21 @@ class AppTextStyles {
       );
 
   // --- Arabic Text (Scheherazade / fallback) ---
-  static TextStyle get arabicBody => const TextStyle(
-        fontFamily: 'Scheherazade',
+  static TextStyle get arabicBody => GoogleFonts.scheherazadeNew(
         fontSize: 22,
         fontWeight: FontWeight.w400,
         height: 2.0,
         letterSpacing: 0.5,
       );
 
-  static TextStyle get arabicLarge => const TextStyle(
-        fontFamily: 'Scheherazade',
+  static TextStyle get arabicLarge => GoogleFonts.scheherazadeNew(
         fontSize: 26,
         fontWeight: FontWeight.w700,
         height: 2.0,
         letterSpacing: 0.5,
       );
 
-  static TextStyle get arabicSmall => const TextStyle(
-        fontFamily: 'Scheherazade',
+  static TextStyle get arabicSmall => GoogleFonts.scheherazadeNew(
         fontSize: 18,
         fontWeight: FontWeight.w400,
         height: 1.8,

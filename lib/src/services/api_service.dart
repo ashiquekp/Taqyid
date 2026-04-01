@@ -72,14 +72,14 @@ class ApiService {
     });
   }
 
-  /// GET /hadiths/list/?language=:lang&category_id=:id&page=:page&per_page=:pp
+  /// GET /hadeeths/list/?language=:lang&category_id=:id&page=:page&per_page=:pp
   Future<Map<String, dynamic>> getHadithsList({
     required String lang,
     required String categoryId,
     int page = 1,
     int perPage = 20,
   }) async {
-    final list = await _getRaw('hadiths/list/', queryParameters: {
+    final list = await _getRaw('hadeeths/list/', queryParameters: {
       'language': lang,
       'category_id': categoryId,
       'page': page,
@@ -88,23 +88,23 @@ class ApiService {
     return list as Map<String, dynamic>;
   }
 
-  /// GET /hadiths/one/?language=:lang&id=:id
+  /// GET /hadeeths/one/?language=:lang&id=:id
   Future<Map<String, dynamic>> getHadeethOne(String lang, String id) async {
-    final raw = await _getRaw('hadiths/one/', queryParameters: {
+    final raw = await _getRaw('hadeeths/one/', queryParameters: {
       'language': lang,
       'id': id,
     });
     return raw as Map<String, dynamic>;
   }
 
-  /// GET /hadiths/search/?language=:lang&term=:term&page=:page&per_page=:pp
+  /// GET /hadeeths/search/?language=:lang&term=:term&page=:page&per_page=:pp
   Future<Map<String, dynamic>> searchHadiths({
     required String lang,
     required String term,
     int page = 1,
     int perPage = 20,
   }) async {
-    final raw = await _getRaw('hadiths/search/', queryParameters: {
+    final raw = await _getRaw('hadeeths/search/', queryParameters: {
       'language': lang,
       'term': term,
       'page': page,

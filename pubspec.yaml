@@ -1,5 +1,5 @@
 name: taqyid
-description: "Taqyid - A premium Hadith study app powered by HadeethEnc."
+description: "Taqyid - A premium Hadeeth study app powered by HadeethEnc."
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -47,12 +47,12 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  fonts:
-    - family: Scheherazade
-      fonts:
-        - asset: assets/fonts/Scheherazade-Regular.ttf
-        - asset: assets/fonts/Scheherazade-Bold.ttf
-          weight: 700
+  # fonts:
+  #   - family: Scheherazade
+  #     fonts:
+  #       - asset: assets/fonts/Scheherazade-Regular.ttf
+  #       - asset: assets/fonts/Scheherazade-Bold.ttf
+  #         weight: 700
 
   assets:
     - assets/fonts/
